@@ -69,6 +69,6 @@ Built for the **Frontend UI Hackathon 2025**, **FlavorNest** blends creativity, 
 
 ## 🤝 **Connect With Me**
 
-- 📧 Email: [shubhamingole169@email.com](mailto:shubhamingole169@email.com)  
+- 📧 Email: [shubhamingole169@email.com](mailto:shubhamingole169@email.com)
 - 🐙 GitHub: [github.com/shubhamingole169](https://github.com/shubhamingole169)
 
