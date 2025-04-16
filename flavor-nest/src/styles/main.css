@@ -1,0 +1,314 @@
+/* CSS Variables */
+:root {
+    --bubblegum-pink: #ff9cc7;
+    --lime-green: #b2ff59;
+    --sunny-yellow: #ffd740;
+    --sky-blue: #4fc3f7;
+    --white: #fff;
+    --text-dark: #333;
+  }
+  
+  /* Global Styles */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Bubblegum Sans", sans-serif;
+  }
+  
+  body {
+    background: var(--white);
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+  
+  h1, h2, h3 {
+    font-family: "Annie Use Your Telescope", cursive;
+  }
+  
+  /* Animations */
+  @keyframes wobble {
+    0%, 100% { transform: rotate(0); }
+    50% { transform: rotate(5deg); }
+  }
+  
+  @keyframes bounce {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+  }
+  
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+  }
+  
+  @keyframes dance {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  /* Header */
+  .header {
+    background: var(--bubblegum-pink);
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .header-title {
+    font-size: 28px;
+    color: var(--white);
+    text-decoration: none;
+    animation: pulse 2s infinite;
+  }
+  
+  .header-search {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    width: 200px;
+  }
+  
+  /* Search Bar */
+  .search-bar {
+    margin: 5rem 1rem 2rem;
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .search-bar-input,
+  .search-bar-filter {
+    padding: 0.5rem;
+    border: 2px solid var(--lime-green);
+    border-radius: 20px;
+    font-size: 16px;
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  /* Recipe Grid */
+  .recipe-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  @media (min-width: 1024px) {
+    .recipe-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  /* Recipe Card */
+  .recipe-card {
+    background: var(--sunny-yellow);
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+  
+  .recipe-card:hover {
+    animation: wobble 0.5s;
+  }
+  
+  .recipe-card-link {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .recipe-card-img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+  }
+  
+  .recipe-card-title {
+    font-size: 22px;
+    padding: 0.5rem;
+    text-align: center;
+  }
+  
+  .recipe-card-prep {
+    font-size: 14px;
+    padding: 0 0.5rem 0.5rem;
+    text-align: center;
+  }
+  
+  .recipe-card-character {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+  }
+  
+  /* Recipe Detail */
+  .recipe-detail {
+    margin: 5rem 1rem;
+    padding: 1rem;
+    background: var(--sky-blue);
+    border-radius: 20px;
+  }
+  
+  .recipe-detail-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  @media (min-width: 1024px) {
+    .recipe-detail-content {
+      flex-direction: row;
+    }
+  
+    .recipe-detail-img {
+      width: 50%;
+    }
+  
+    .recipe-detail-info {
+      width: 50%;
+    }
+  }
+  
+  .recipe-detail-img {
+    width: 100%;
+    border-radius: 20px;
+    max-height: 300px;
+    object-fit: cover;
+  }
+  
+  .recipe-detail-title {
+    font-size: 28px;
+  }
+  
+  .recipe-detail-prep {
+    font-size: 16px;
+    margin-bottom: 1rem;
+  }
+  
+  .recipe-detail-ingredients,
+  .recipe-detail-instructions {
+    margin: 1rem 0;
+  }
+  
+  .ingredient-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 18px;
+  }
+  
+  .ingredient-item input:checked + label {
+    animation: bounce 0.3s;
+  }
+  
+  .recipe-detail-save,
+  .recipe-detail-cooking-mode {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 20px;
+    background: var(--lime-green);
+    color: var(--white);
+    font-size: 16px;
+    cursor: pointer;
+    margin: 0.5rem;
+  }
+  
+  .recipe-detail-save:hover,
+  .recipe-detail-cooking-mode:hover {
+    animation: pulse 0.5s;
+  }
+  
+  /* Cooking Mode */
+  .cooking-mode {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 2000;
+  }
+  
+  .cooking-mode-overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .cooking-mode-content {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 24px;
+  }
+  
+  .cooking-mode-next {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 20px;
+    background: var(--bubblegum-pink);
+    color: var(--white);
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 1rem;
+  }
+  
+  /* Chef Character */
+  .chef-character {
+    position: relative;
+    margin-bottom: 2rem;
+  }
+  
+  .chef-character-img {
+    width: 150px;
+    animation: dance 2s infinite;
+  }
+  
+  .chef-character-bubble {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--sunny-yellow);
+    padding: 1rem;
+    border-radius: 20px;
+    font-size: 18px;
+    max-width: 200px;
+    word-break: break-word;
+  }
+  
+  .chef-character-bubble::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 10px solid transparent;
+    border-top-color: var(--sunny-yellow);
+  }
+  
+  /* No Results */
+  .no-results {
+    text-align: center;
+    font-size: 18px;
+    margin: 2rem;
+  }
+  
+  /* Accessibility */
+  :focus {
+    outline: 2px solid var(--lime-green);
+    outline-offset: 2px;
+  }
